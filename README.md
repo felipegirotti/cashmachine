@@ -1,6 +1,9 @@
 CashMachine API
 ================
-
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/felipegirotti/cashmachine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/felipegirotti/cashmachine/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/felipegirotti/cashmachine/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/felipegirotti/cashmachine/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/felipegirotti/cashmachine/badges/build.png?b=master)](https://scrutinizer-ci.com/g/felipegirotti/cashmachine/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/felipegirotti/cashmachine/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 ## The Problem
 Develop a solution that simulate the delivery of notes when a client does a withdraw in a cash machine.
 
