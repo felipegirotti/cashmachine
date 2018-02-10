@@ -1,0 +1,35 @@
+filter:
+    excluded_paths:
+        - 'tests/*'
+        - 'web/*'
+        - 'app/*'
+checks:
+    php: true
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                additive: false
+                concatenation: true
+build:
+    environment:
+        php: '7.1'
+        timezone: 'UTC'
+    tests:
+        before:
+            - 'vendor/bin/simple-phpunit'
+        override:
+            -
+                command: 'vendor/bin/simple-phpunit --coverage-clover=some-file'
+                coverage:
+                    file: 'some-file'
+                    format: 'clover'
+    nodes:
+        tests: true
+        analysis:
+            tests:
+                override:
+                    -
+                        command: phpcs-run
+                        use_website_config: true
+                    - php-scrutinizer-run
