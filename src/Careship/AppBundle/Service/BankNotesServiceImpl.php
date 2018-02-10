@@ -10,15 +10,7 @@ class BankNotesServiceImpl implements BankNotesService
      * @var array
      */
     private $banknotes = [10, 20, 50, 100];
-    /**
-     * Set banknotes
-     *
-     * @param array $banknotes
-     */
-    public function setBanknotes(array $banknotes)
-    {
-        $this->banknotes = $banknotes;
-    }
+
     /**
      * Get banknotes
      *
@@ -28,6 +20,7 @@ class BankNotesServiceImpl implements BankNotesService
     {
         return $this->banknotes;
     }
+
     /**
      * Filter max value to banknotes
      *
@@ -42,6 +35,7 @@ class BankNotesServiceImpl implements BankNotesService
             }
         );
     }
+
     /**
      * Get grater banknote
      *
@@ -52,6 +46,7 @@ class BankNotesServiceImpl implements BankNotesService
         $this->descSort();
         return max($this->banknotes);
     }
+
     /**
      * Get note values desc sorted
      *

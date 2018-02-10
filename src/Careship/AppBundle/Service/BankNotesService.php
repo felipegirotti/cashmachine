@@ -6,13 +6,6 @@ interface BankNotesService
 {
 
     /**
-     * Set banknotes
-     *
-     * @param array $banknotes
-     */
-    public function setBanknotes(array $banknotes);
-
-    /**
      * Get banknotes
      *
      * @return array
