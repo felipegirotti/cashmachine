@@ -37,7 +37,7 @@ class BankNotesServiceImpl implements BankNotesService
     {
         $this->banknotes = array_filter(
             $this->banknotes,
-            function ($var) use ($max) {
+            function($var) use ($max) {
                 return ($var <= $max);
             }
         );

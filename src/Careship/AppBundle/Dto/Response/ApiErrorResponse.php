@@ -23,7 +23,7 @@ class ApiErrorResponse
     public function __construct(string $error, int $code)
     {
         $this->error = $error;
-        $this->code    = $code;
+        $this->code = $code;
     }
 
 

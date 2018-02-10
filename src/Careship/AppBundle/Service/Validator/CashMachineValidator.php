@@ -60,7 +60,7 @@ class CashMachineValidator
     {
         $filtered = array_filter(
             $this->banknotes->getBanknotes(),
-            function ($note) use ($value) {
+            function($note) use ($value) {
                 return ($value % $note === 0);
             }
         );
