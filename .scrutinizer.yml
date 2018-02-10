@@ -3,6 +3,7 @@ filter:
         - 'tests/*'
         - 'web/*'
         - 'app/*'
+        - 'var/*'
 checks:
     php: true
 coding_style:
