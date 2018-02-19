@@ -2,7 +2,9 @@
 
 namespace Careship\AppBundle\Controller;
 
+use Careship\AppBundle\Dto\Request\WithDrawRequest;
 use Careship\AppBundle\Service\CashMachineServiceImpl;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -29,12 +31,14 @@ class CashMachineController
     /**
      * @Method("GET")
      * @Route("/{value}", requirements={ "value": "\d+" }, defaults={"value" = 0}, name="cache_machine.with_draw")
+     * @ParamConverter(name="withDrawRequest", converter="withdraw_param_converter")
+     * @param WithDrawRequest $withDrawRequest
+     * @return JsonResponse
      */
-    public function withDraw($value)
+    public function withDraw(WithDrawRequest $withDrawRequest)
     {
-//        $value = $request->get('value', 0);
-        $cash = $this->cashMachineService->withDraw($value);
+        $cash = $this->cashMachineService->withDraw($withDrawRequest->getValue());
 
-        return new JsonResponse(['cash' => $cash]);
+        return new JsonResponse(['code' => 200, 'data' => ['cash' => $cash]]);
     }
 }

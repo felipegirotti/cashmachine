@@ -26,11 +26,14 @@ services:
       public: false
 
 
-
     Careship\AppBundle\EventListener\ExceptionListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
-#          tags: ['request.param_converter']
+
+    Careship\AppBundle\Dto\Request\ParamConverter\WithDrawParamConverter:
+        tags:
+          - { name: request.param_converter, converter: withdraw_param_converter}
+
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
 #    AppBundle\:

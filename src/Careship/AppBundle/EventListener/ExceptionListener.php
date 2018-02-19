@@ -13,12 +13,9 @@ class ExceptionListener
 {
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
-
         $exception = $event->getException();
-        $apiResponse = new ApiErrorResponse($exception->getMessage(), $exception->getCode());
 
-        $response = new JsonResponse($apiResponse->toArray());
-
+        $response = new JsonResponse();
 
         // HttpExceptionInterface is a special type of exception that
         // holds status code and header details
@@ -30,6 +27,9 @@ class ExceptionListener
         } else {
             $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+
+        $apiResponse = new ApiErrorResponse($exception->getMessage(), $response->getStatusCode());
+        $response->setData($apiResponse->toArray());
 
         // sends the modified response object to the event
         $event->setResponse($response);

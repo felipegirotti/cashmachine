@@ -18,7 +18,6 @@ class CashMachineServiceTest extends TestCase
     {
         $bankNotesService = new BankNotesServiceImpl();
         $this->cashMachine = new CashMachineServiceImpl(
-            new CashMachineValidator($bankNotesService),
             $bankNotesService
         );
     }
@@ -44,21 +43,5 @@ class CashMachineServiceTest extends TestCase
         $this->assertEmpty(
             $this->cashMachine->withDraw(null)
         );
-    }
-
-    /**
-     * @expectedException \Careship\AppBundle\Service\Exception\NoteUnavailableException
-     */
-    public function testExecute125Exception()
-    {
-        $this->cashMachine->withDraw(125);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     */
-    public function testExecuteNegativeException()
-    {
-        $this->cashMachine->withDraw(-130);
     }
 }

@@ -13,19 +13,13 @@ class CashMachineServiceImpl implements CashMachineService
     private $banknotes;
 
     /**
-     * @var CashMachineValidator
-     */
-    private $validator;
-
-    /**
      * @var array
      */
     private $withdrawBanknotes = [];
 
-    public function __construct(CashMachineValidator $validator, BankNotesService $banknotes)
+    public function __construct(BankNotesService $banknotes)
     {
         $this->banknotes = $banknotes;
-        $this->validator = $validator;
     }
     /**
      * Withdraw some money
@@ -36,8 +30,6 @@ class CashMachineServiceImpl implements CashMachineService
      */
     public function withDraw($value): array
     {
-        $this->validator->validate($value);
-
         while ($value > 0) {
             $this->banknotes->filterMaxValue($value);
             $banknote = $this->banknotes->getGreater();

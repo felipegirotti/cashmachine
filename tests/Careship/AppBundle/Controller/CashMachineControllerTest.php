@@ -33,27 +33,27 @@ class CashMachineControllerTest extends WebTestCase
         return [
             [
                 Response::HTTP_OK,
-                ['cash' =>  []],
+                ['code' => Response::HTTP_OK,  'data' => ['cash' =>  []]],
                 ""
             ],
             [
                 Response::HTTP_NOT_FOUND,
-                ['code' =>  0, 'error' => 'No route found for "GET /-100"'],
+                ['code' =>  Response::HTTP_NOT_FOUND, 'error' => 'No route found for "GET /-100"'],
                 "-100"
             ],
             [
                 Response::HTTP_OK,
-                ['cash' =>  [100, 100]],
+                ['code' => Response::HTTP_OK, 'data' => ['cash' =>  [100, 100]]],
                 "200"
             ],
             [
                 Response::HTTP_BAD_REQUEST,
-                ['code' =>  0, 'error' => 'Note not available for this value.'],
+                ['code' =>  Response::HTTP_BAD_REQUEST, 'error' => 'Note not available for this value.'],
                 "125"
             ],
             [
                 Response::HTTP_OK,
-                ['cash' =>  [50, 20, 10]],
+                ['code' => Response::HTTP_OK,  'data' => ['cash' =>  [50, 20, 10]]],
                 "80"
             ]
         ];

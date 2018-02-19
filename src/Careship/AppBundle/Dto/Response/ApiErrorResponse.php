@@ -26,7 +26,9 @@ class ApiErrorResponse
         $this->code = $code;
     }
 
-
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [
