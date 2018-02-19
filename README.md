@@ -74,11 +74,16 @@ Regarding the CashMachine I split for 3 services to respect the SOLID:
 BankNotes to provide the notes and the logic for server notes,      
 The CashMachineService not need have knowledge of provider, just only trusty in your Interface.
    
-## ValidatorService
+### ValidatorService
 The responsible to validate input and if the value is able to business logic
 
 ### CashMachine
 CashMachineService is responsible to call notes from BankNoteService and delivery notes.
+
+### Controller
+For the controller I use the ParamConverter for get the `value` and validate it on layer of controller, 
+but totally decouple of controller.
+
 
 
 
