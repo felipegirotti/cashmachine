@@ -6,7 +6,6 @@ use Careship\AppBundle\EventListener\ExceptionListener;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\HttpKernel\Tests\Event\GetResponseForExceptionEventTest;
 use Symfony\Component\HttpKernel\Tests\TestHttpKernel;
 
 class ExceptionListenerTest extends TestCase
@@ -25,6 +24,9 @@ class ExceptionListenerTest extends TestCase
         $this->assertEquals($httpCode, $event->getResponse()->getStatusCode());
     }
 
+    /**
+     * @return array
+     */
     public function onKernelExceptionDataProvider()
     {
         return [
