@@ -2,8 +2,6 @@
 
 namespace Careship\AppBundle\Service;
 
-use Careship\AppBundle\Service\Validator\CashMachineValidator;
-
 class CashMachineServiceImpl implements CashMachineService
 {
 
