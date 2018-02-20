@@ -91,4 +91,5 @@ but totally decouple of controller.
 - Provider the Listener to catch the DTO and transform to json (avoid to use JMS) maybe the JsonSerializable
 - Provide the possible errors code with a good description
 - Use the HATEOAS (Hypermedia As The Engine Of Application State)
+- Docker
 
