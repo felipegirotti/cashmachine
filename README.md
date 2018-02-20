@@ -66,16 +66,16 @@ But to show more skills I decided to use a framework, and the choice for Symfony
 The decision for version 3.4 was because is LTS.
 
 Regarding the CashMachine I split for 3 services to respect the SOLID:
-- BankNotes
 - ValidatorService
+- BankNotes
 - CashMachine
+
+### ValidatorService
+The responsible to validate input and if the value is able to business logic
 
 ### BankNotes
 BankNotes to provide the notes and the logic for server notes,      
-The CashMachineService not need have knowledge of provider, just only trusty in your Interface.
-   
-### ValidatorService
-The responsible to validate input and if the value is able to business logic
+The CashMachineService not need have knowledge of provider, just only trusty in their Interface.
 
 ### CashMachine
 CashMachineService is responsible to call notes from BankNoteService and delivery notes.
@@ -85,5 +85,8 @@ For the controller I use the ParamConverter for get the `value` and validate it 
 but totally decouple of controller.
 
 
+## Improvements
 
+Use DTO to response,
+Provider the Listener to catch the DTO and transform to json (avoid to use JMS) maybe the JsonSerializable
 
